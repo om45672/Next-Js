@@ -2,6 +2,7 @@
 import { connectDB } from "@/lib/db";
 import Todo from "@/models/todo";
 import { todoSchema } from "@/schemas/todo-schema";
+import { success } from "zod";
 
 export async function getTodos() {
   try {
@@ -48,7 +49,24 @@ export async function toggleTodo(id, completed) {
       { completed },
       {new:true}
     )
-    return JSON.parse(JSON.stringify(updatedTodo))
+    return {
+      success: true,
+    };
+  } catch (error) {
+    console.error(error);
+    return { error: "Failed to fetch todos" };
+  }
+}
+export async function deleteTodo(id) {
+  const connected = await connectDB();
+  if (!connected) {
+    return { error: "Database connection failed" };
+  }
+  try {
+    const updatedTodo = await Todo.findByIdAndDelete(id)
+    return {
+      success: true,
+    }
   } catch (error) {
     console.error(error);
     return { error: "Failed to fetch todos" };

@@ -20,6 +20,18 @@ const TodoItem = ({ todo }) => {
     },
   });
 
+  const { mutate: remove } = useMutation({
+    mutationFn: (id) => deleteTodo(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["todos"] });
+      toast.success("Task deleted successfully");
+    },
+    onError: (err) => {
+      console.log(err);
+      toast.error(err);
+    },
+  })
+
   return (
     <div className="flex items-center justify-between p-4 bg-card border rounded-lg shadow-sm hover:shadow-md transition-shadow mb-3">
       <div className="flex items-center gap-3">
