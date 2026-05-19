@@ -1,5 +1,5 @@
 
-// import { TodoList } from "@/components/todo-list";
+import  TodoList  from "@/components/todo-list";
 import TodoForm from "@/components/todo-form";
 import { Button } from "@/components/ui/button";
 import { connectDB } from "@/lib/db";
@@ -28,7 +28,7 @@ export default async function Home() {
 
         <section className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-2xl p-6 shadow-sm">
           <TodoForm />
-          {/* <TodoList/> */}
+          <TodoList/>
         </section>
 
         <footer className="pt-8 text-center border-t border-slate-200 dark:border-zinc-800">
