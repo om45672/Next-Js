@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1779366975204,
+      "tag": "0000_ancient_mentallo",
+      "breakpoints": true
+    }
+  ]
+}
