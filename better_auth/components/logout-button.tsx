@@ -11,7 +11,7 @@ const LogoutButton = () => {
         await authClient.signOut({
             fetchOptions: {
                 onSuccess: () => {
-                    toast.success("Logout successfull");
+                    toast.success("Logout successful");
                     router.push("/login");
                 }
             }
